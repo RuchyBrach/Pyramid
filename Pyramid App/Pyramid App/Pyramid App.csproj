@@ -9,4 +9,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="gnuciDictionary" Version="0.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="frmPyramid.cs">
+      <CustomToolNamespace></CustomToolNamespace>
+    </Compile>
+  </ItemGroup>
+
 </Project>
