@@ -44,7 +44,7 @@
             txtRow21 = new TextBox();
             txtRow22 = new TextBox();
             tblRow1 = new TableLayoutPanel();
-            lblStartLetter = new Label();
+            txtRow11 = new TextBox();
             tblRow3 = new TableLayoutPanel();
             txtRow31 = new TextBox();
             txtRow32 = new TextBox();
@@ -61,6 +61,9 @@
             lblBestPlayedVal = new Label();
             tblScore = new TableLayoutPanel();
             lblScoreVal = new Label();
+            tblRules = new TableLayoutPanel();
+            btnRules = new Button();
+            lblDefinition = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             tblMain.SuspendLayout();
             tblRow5.SuspendLayout();
@@ -72,6 +75,7 @@
             tblBlocks.SuspendLayout();
             tblBestPlayed.SuspendLayout();
             tblScore.SuspendLayout();
+            tblRules.SuspendLayout();
             SuspendLayout();
             // 
             // tblMain
@@ -88,6 +92,7 @@
             tblMain.Controls.Add(tblRow1, 1, 1);
             tblMain.Controls.Add(tblRow3, 1, 3);
             tblMain.Controls.Add(tblSidebar, 3, 0);
+            tblMain.Controls.Add(lblDefinition, 1, 6);
             tblMain.Dock = DockStyle.Fill;
             tblMain.Location = new Point(0, 0);
             tblMain.Name = "tblMain";
@@ -131,9 +136,9 @@
             // 
             // txtRow51
             // 
-            txtRow51.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow51.BackColor = Color.FromArgb(77, 149, 236);
             txtRow51.CharacterCasing = CharacterCasing.Upper;
+            txtRow51.Dock = DockStyle.Fill;
             txtRow51.Enabled = false;
             txtRow51.Font = new Font("Segoe UI", 25.8000011F);
             txtRow51.Location = new Point(18, 2);
@@ -147,9 +152,9 @@
             // 
             // txtRow52
             // 
-            txtRow52.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow52.BackColor = Color.FromArgb(77, 149, 236);
             txtRow52.CharacterCasing = CharacterCasing.Upper;
+            txtRow52.Dock = DockStyle.Fill;
             txtRow52.Enabled = false;
             txtRow52.Font = new Font("Segoe UI", 25.8000011F);
             txtRow52.Location = new Point(122, 2);
@@ -163,9 +168,9 @@
             // 
             // txtRow53
             // 
-            txtRow53.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow53.BackColor = Color.FromArgb(77, 149, 236);
             txtRow53.CharacterCasing = CharacterCasing.Upper;
+            txtRow53.Dock = DockStyle.Fill;
             txtRow53.Enabled = false;
             txtRow53.Font = new Font("Segoe UI", 25.8000011F);
             txtRow53.Location = new Point(226, 2);
@@ -179,9 +184,9 @@
             // 
             // txtRow54
             // 
-            txtRow54.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow54.BackColor = Color.FromArgb(77, 149, 236);
             txtRow54.CharacterCasing = CharacterCasing.Upper;
+            txtRow54.Dock = DockStyle.Fill;
             txtRow54.Enabled = false;
             txtRow54.Font = new Font("Segoe UI", 25.8000011F);
             txtRow54.Location = new Point(330, 2);
@@ -195,9 +200,9 @@
             // 
             // txtRow55
             // 
-            txtRow55.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow55.BackColor = Color.FromArgb(77, 149, 236);
             txtRow55.CharacterCasing = CharacterCasing.Upper;
+            txtRow55.Dock = DockStyle.Fill;
             txtRow55.Enabled = false;
             txtRow55.Font = new Font("Segoe UI", 25.8000011F);
             txtRow55.Location = new Point(434, 2);
@@ -233,9 +238,9 @@
             // 
             // txtRow41
             // 
-            txtRow41.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow41.BackColor = Color.FromArgb(132, 194, 251);
             txtRow41.CharacterCasing = CharacterCasing.Upper;
+            txtRow41.Dock = DockStyle.Fill;
             txtRow41.Enabled = false;
             txtRow41.Font = new Font("Segoe UI", 25.8000011F);
             txtRow41.Location = new Point(63, 2);
@@ -249,9 +254,9 @@
             // 
             // txtRow42
             // 
-            txtRow42.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow42.BackColor = Color.FromArgb(132, 194, 251);
             txtRow42.CharacterCasing = CharacterCasing.Upper;
+            txtRow42.Dock = DockStyle.Fill;
             txtRow42.Enabled = false;
             txtRow42.Font = new Font("Segoe UI", 25.8000011F);
             txtRow42.Location = new Point(170, 2);
@@ -265,9 +270,9 @@
             // 
             // txtRow43
             // 
-            txtRow43.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow43.BackColor = Color.FromArgb(132, 194, 251);
             txtRow43.CharacterCasing = CharacterCasing.Upper;
+            txtRow43.Dock = DockStyle.Fill;
             txtRow43.Enabled = false;
             txtRow43.Font = new Font("Segoe UI", 25.8000011F);
             txtRow43.Location = new Point(277, 2);
@@ -281,9 +286,9 @@
             // 
             // txtRow44
             // 
-            txtRow44.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow44.BackColor = Color.FromArgb(132, 194, 251);
             txtRow44.CharacterCasing = CharacterCasing.Upper;
+            txtRow44.Dock = DockStyle.Fill;
             txtRow44.Enabled = false;
             txtRow44.Font = new Font("Segoe UI", 25.8000011F);
             txtRow44.Location = new Point(384, 2);
@@ -315,9 +320,9 @@
             // 
             // txtRow21
             // 
-            txtRow21.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow21.BackColor = Color.FromArgb(162, 251, 226);
             txtRow21.CharacterCasing = CharacterCasing.Upper;
+            txtRow21.Dock = DockStyle.Fill;
             txtRow21.Font = new Font("Segoe UI", 25.8000011F);
             txtRow21.Location = new Point(172, 2);
             txtRow21.Margin = new Padding(0, 2, 0, 2);
@@ -330,11 +335,12 @@
             // 
             // txtRow22
             // 
-            txtRow22.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow22.BackColor = Color.FromArgb(162, 251, 226);
             txtRow22.CharacterCasing = CharacterCasing.Upper;
+            txtRow22.Dock = DockStyle.Fill;
             txtRow22.Enabled = false;
             txtRow22.Font = new Font("Segoe UI", 25.8000011F);
+            txtRow22.ForeColor = SystemColors.ActiveCaptionText;
             txtRow22.Location = new Point(278, 2);
             txtRow22.Margin = new Padding(0, 2, 0, 2);
             txtRow22.MaxLength = 1;
@@ -351,7 +357,7 @@
             tblRow1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.5712433F));
             tblRow1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18.8575134F));
             tblRow1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.5712433F));
-            tblRow1.Controls.Add(lblStartLetter, 1, 0);
+            tblRow1.Controls.Add(txtRow11, 1, 0);
             tblRow1.Dock = DockStyle.Fill;
             tblRow1.Location = new Point(73, 136);
             tblRow1.Name = "tblRow1";
@@ -360,19 +366,23 @@
             tblRow1.Size = new Size(558, 68);
             tblRow1.TabIndex = 0;
             // 
-            // lblStartLetter
+            // txtRow11
             // 
-            lblStartLetter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblStartLetter.AutoSize = true;
-            lblStartLetter.BackColor = Color.FromArgb(220, 254, 241);
-            lblStartLetter.BorderStyle = BorderStyle.Fixed3D;
-            lblStartLetter.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblStartLetter.Location = new Point(227, 2);
-            lblStartLetter.Margin = new Padding(1, 2, 1, 2);
-            lblStartLetter.Name = "lblStartLetter";
-            lblStartLetter.Size = new Size(103, 64);
-            lblStartLetter.TabIndex = 0;
-            lblStartLetter.TextAlign = ContentAlignment.TopCenter;
+            txtRow11.BackColor = Color.FromArgb(220, 254, 241);
+            txtRow11.CharacterCasing = CharacterCasing.Upper;
+            txtRow11.Dock = DockStyle.Fill;
+            txtRow11.Enabled = false;
+            txtRow11.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRow11.ForeColor = SystemColors.WindowText;
+            txtRow11.Location = new Point(226, 2);
+            txtRow11.Margin = new Padding(0, 2, 0, 2);
+            txtRow11.MaxLength = 1;
+            txtRow11.Multiline = true;
+            txtRow11.Name = "txtRow11";
+            txtRow11.Size = new Size(105, 64);
+            txtRow11.TabIndex = 0;
+            txtRow11.TabStop = false;
+            txtRow11.TextAlign = HorizontalAlignment.Center;
             // 
             // tblRow3
             // 
@@ -396,9 +406,9 @@
             // 
             // txtRow31
             // 
-            txtRow31.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow31.BackColor = Color.FromArgb(168, 247, 251);
             txtRow31.CharacterCasing = CharacterCasing.Upper;
+            txtRow31.Dock = DockStyle.Fill;
             txtRow31.Enabled = false;
             txtRow31.Font = new Font("Segoe UI", 25.8000011F);
             txtRow31.Location = new Point(120, 2);
@@ -412,9 +422,9 @@
             // 
             // txtRow32
             // 
-            txtRow32.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow32.BackColor = Color.FromArgb(168, 247, 251);
             txtRow32.CharacterCasing = CharacterCasing.Upper;
+            txtRow32.Dock = DockStyle.Fill;
             txtRow32.Enabled = false;
             txtRow32.Font = new Font("Segoe UI", 25.8000011F);
             txtRow32.Location = new Point(225, 2);
@@ -428,9 +438,9 @@
             // 
             // txtRow33
             // 
-            txtRow33.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtRow33.BackColor = Color.FromArgb(168, 247, 251);
             txtRow33.CharacterCasing = CharacterCasing.Upper;
+            txtRow33.Dock = DockStyle.Fill;
             txtRow33.Enabled = false;
             txtRow33.Font = new Font("Segoe UI", 25.8000011F);
             txtRow33.Location = new Point(330, 2);
@@ -453,6 +463,7 @@
             tblSidebar.Controls.Add(tblBlocks, 0, 8);
             tblSidebar.Controls.Add(tblBestPlayed, 0, 5);
             tblSidebar.Controls.Add(tblScore, 0, 2);
+            tblSidebar.Controls.Add(tblRules, 0, 9);
             tblSidebar.Dock = DockStyle.Fill;
             tblSidebar.ForeColor = SystemColors.ControlLightLight;
             tblSidebar.Location = new Point(712, 30);
@@ -626,6 +637,46 @@
             lblScoreVal.Text = "0";
             lblScoreVal.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // tblRules
+            // 
+            tblRules.ColumnCount = 1;
+            tblRules.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tblRules.Controls.Add(btnRules, 0, 1);
+            tblRules.Dock = DockStyle.Fill;
+            tblRules.Location = new Point(0, 467);
+            tblRules.Margin = new Padding(0);
+            tblRules.Name = "tblRules";
+            tblRules.RowCount = 2;
+            tblRules.RowStyles.Add(new RowStyle(SizeType.Percent, 42.9922562F));
+            tblRules.RowStyles.Add(new RowStyle(SizeType.Percent, 57.0077477F));
+            tblRules.Size = new Size(175, 51);
+            tblRules.TabIndex = 5;
+            // 
+            // btnRules
+            // 
+            btnRules.BackColor = Color.White;
+            btnRules.Dock = DockStyle.Fill;
+            btnRules.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRules.ForeColor = Color.Black;
+            btnRules.Location = new Point(0, 21);
+            btnRules.Margin = new Padding(0);
+            btnRules.Name = "btnRules";
+            btnRules.Size = new Size(175, 30);
+            btnRules.TabIndex = 0;
+            btnRules.Text = "Click for Rules";
+            btnRules.UseVisualStyleBackColor = false;
+            // 
+            // lblDefinition
+            // 
+            lblDefinition.AutoSize = true;
+            lblDefinition.Dock = DockStyle.Fill;
+            lblDefinition.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDefinition.Location = new Point(73, 503);
+            lblDefinition.Name = "lblDefinition";
+            lblDefinition.Size = new Size(558, 75);
+            lblDefinition.TabIndex = 6;
+            lblDefinition.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 3;
@@ -651,6 +702,7 @@
             Name = "frmPyramid";
             Text = "frmPyramid";
             tblMain.ResumeLayout(false);
+            tblMain.PerformLayout();
             tblRow5.ResumeLayout(false);
             tblRow5.PerformLayout();
             tblRow4.ResumeLayout(false);
@@ -669,6 +721,7 @@
             tblBestPlayed.PerformLayout();
             tblScore.ResumeLayout(false);
             tblScore.PerformLayout();
+            tblRules.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -704,9 +757,12 @@
         private TextBox txtRow44;
         private TextBox txtRow21;
         private TextBox txtRow22;
-        private Label lblStartLetter;
         private TextBox txtRow31;
         private TextBox txtRow32;
         private TextBox txtRow33;
+        private TextBox txtRow11;
+        private TableLayoutPanel tblRules;
+        private Button btnRules;
+        private Label lblDefinition;
     }
 }
