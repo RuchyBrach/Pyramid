@@ -370,7 +370,6 @@
             // 
             txtRow11.BackColor = Color.FromArgb(220, 254, 241);
             txtRow11.CharacterCasing = CharacterCasing.Upper;
-            txtRow11.Dock = DockStyle.Fill;
             txtRow11.Enabled = false;
             txtRow11.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRow11.ForeColor = SystemColors.WindowText;

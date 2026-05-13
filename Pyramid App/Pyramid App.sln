@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pyramid App", "Pyramid App\Pyramid App.csproj", "{CB076D01-AAD7-4052-BAAF-02604F9769C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pyramid App", "Pyramid App\Pyramid App.csproj", "{CB076D01-AAD7-4052-BAAF-02604F9769C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyramidMAUI", "PyramidMAUI\PyramidMAUI.csproj", "{13A58E99-597E-4F7A-9581-F4BF1FEECCEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{CB076D01-AAD7-4052-BAAF-02604F9769C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB076D01-AAD7-4052-BAAF-02604F9769C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB076D01-AAD7-4052-BAAF-02604F9769C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A58E99-597E-4F7A-9581-F4BF1FEECCEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A58E99-597E-4F7A-9581-F4BF1FEECCEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A58E99-597E-4F7A-9581-F4BF1FEECCEB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{13A58E99-597E-4F7A-9581-F4BF1FEECCEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A58E99-597E-4F7A-9581-F4BF1FEECCEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A58E99-597E-4F7A-9581-F4BF1FEECCEB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

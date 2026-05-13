@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PyramidMAUI.Pyramid"
+             Title="Pyramid">
+    <Grid ColumnDefinitions="4*,*" RowDefinitions="*">
+        <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*,*" Grid.Column="0" VerticalOptions="End" Padding="40">
+            <Entry x:Name="txtRow11" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" Style="{StaticResource Key=Row 1}"/>
+            <HorizontalStackLayout Grid.Column="0" Grid.Row="2" HorizontalOptions="Center">
+                <Entry x:Name="txtRow21" Style="{StaticResource Key=Row 2}"/>
+                <Entry x:Name="txtRow22" Style="{StaticResource Key=Row 2}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="0" Grid.Row="3" HorizontalOptions="Center">
+                <Entry x:Name="txtRow31" Style="{StaticResource Key=Row 3}"/>
+                <Entry x:Name="txtRow32" Style="{StaticResource Key=Row 3}"/>
+                <Entry x:Name="txtRow33" Style="{StaticResource Key=Row 3}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="0" Grid.Row="4" HorizontalOptions="Center">
+                <Entry x:Name="txtRow41" Style="{StaticResource Key=Row 4}"/>
+                <Entry x:Name="txtRow42" Style="{StaticResource Key=Row 4}"/>
+                <Entry x:Name="txtRow43" Style="{StaticResource Key=Row 4}"/>
+                <Entry x:Name="txtRow44" Style="{StaticResource Key=Row 4}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="0" Grid.Row="5" HorizontalOptions="Center">
+                <Entry x:Name="txtRow51" Style="{StaticResource Key=Row 5}"/>
+                <Entry x:Name="txtRow52" Style="{StaticResource Key=Row 5}"/>
+                <Entry x:Name="txtRow53" Style="{StaticResource Key=Row 5}"/>
+                <Entry x:Name="txtRow54" Style="{StaticResource Key=Row 5}"/>
+                <Entry x:Name="txtRow55" Style="{StaticResource Key=Row 5}"/>
+            </HorizontalStackLayout>
+        </Grid>
+        <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*,*,*" Grid.Column="1" Grid.Row="0" Padding="10" VerticalOptions="Fill">
+            <Border Grid.Row="0" Grid.RowSpan="7" StrokeShape="RoundRectangle 40" Stroke="#B9FDE9">
+                <Label x:Name="lblBase" Grid.RowSpan="6" BackgroundColor="#B9FDE9" Margin="0"/>
+            </Border>
+            <Label x:Name="lblScore" Text="Score:" Grid.Row="0"/>
+            <Label x:Name="lblScoreValue" Text="0" Grid.Row="1" WidthRequest="100"/>
+            <Label x:Name="lblBestPlayed" Text="Best Played:" Grid.Row="2"/>
+            <Label x:Name="lblBestPlayedValue" Text="0" Grid.Row="3" WidthRequest="100"/>
+            <Label x:Name="lblBlocks" Text="Blocks:" Grid.Row="4"/>
+            <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center" VerticalOptions="Start">
+                <Label x:Name="lblBlock1" Style="{StaticResource Key=blocks}"/>
+                <Label x:Name="lblBlock2" Style="{StaticResource Key=blocks}"/>
+                <Label x:Name="lblBlock3" Style="{StaticResource Key=blocks}"/>
+            </HorizontalStackLayout>
+            <Button x:Name="btnRules" Text="Click for Rules" Grid.Row="6"/>
+        </Grid>
+    </Grid>
+</ContentPage>
