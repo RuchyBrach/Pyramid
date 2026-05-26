@@ -53,6 +53,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\PyramidSystem\PyramidSystem.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Pyramid.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -148,12 +148,14 @@
     </Style>
 
     <Style TargetType="Entry">
+        <Setter Property="IsEnabled" Value="False"/>
         <Setter Property="TextColor" Value="White" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="TextTransform" Value="Uppercase"/>
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="40" />
+        <Setter Property="MaxLength" Value="1"/>
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
         <Setter Property="MinimumHeightRequest" Value="90"/>
         <Setter Property="MinimumWidthRequest" Value="160"/>

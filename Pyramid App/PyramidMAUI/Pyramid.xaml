@@ -4,46 +4,46 @@
              x:Class="PyramidMAUI.Pyramid"
              Title="Pyramid">
     <Grid ColumnDefinitions="4*,*" RowDefinitions="*">
-            <Grid ColumnDefinitions="*" RowDefinitions="Auto,Auto, Auto, Auto,Auto,Auto" Grid.Column="0" VerticalOptions="End" Padding="40">
-                <Entry x:Name="txtRow11" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" Style="{StaticResource Key=Row 1}"/>
-                <HorizontalStackLayout Grid.Column="0" Grid.Row="2" HorizontalOptions="Center">
-                    <Entry x:Name="txtRow21" Style="{StaticResource Key=Row 2}"/>
-                    <Entry x:Name="txtRow22" Style="{StaticResource Key=Row 2}"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Grid.Column="0" Grid.Row="3" HorizontalOptions="Center">
-                    <Entry x:Name="txtRow31" Style="{StaticResource Key=Row 3}"/>
-                    <Entry x:Name="txtRow32" Style="{StaticResource Key=Row 3}"/>
-                    <Entry x:Name="txtRow33" Style="{StaticResource Key=Row 3}"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Grid.Column="0" Grid.Row="4" HorizontalOptions="Center">
-                    <Entry x:Name="txtRow41" Style="{StaticResource Key=Row 4}"/>
-                    <Entry x:Name="txtRow42" Style="{StaticResource Key=Row 4}"/>
-                    <Entry x:Name="txtRow43" Style="{StaticResource Key=Row 4}"/>
-                    <Entry x:Name="txtRow44" Style="{StaticResource Key=Row 4}"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Grid.Column="0" Grid.Row="5" HorizontalOptions="Center">
-                    <Entry x:Name="txtRow51" Style="{StaticResource Key=Row 5}"/>
-                    <Entry x:Name="txtRow52" Style="{StaticResource Key=Row 5}"/>
-                    <Entry x:Name="txtRow53" Style="{StaticResource Key=Row 5}"/>
-                    <Entry x:Name="txtRow54" Style="{StaticResource Key=Row 5}"/>
-                    <Entry x:Name="txtRow55" Style="{StaticResource Key=Row 5}"/>
-                </HorizontalStackLayout>
-            </Grid>
-            <Grid ColumnDefinitions="*" RowDefinitions="*,*, *, *,*,*, Auto" Grid.Column="1" Grid.Row="0" Padding="10" VerticalOptions="Fill">
-                <Border Grid.Row="0" Grid.RowSpan="7" StrokeShape="RoundRectangle 40" Stroke="#B9FDE9">
-                    <Label x:Name="lblBase" Grid.RowSpan="6" BackgroundColor="#B9FDE9" Margin="0"/>
-                </Border>
-                <Label x:Name="lblScore" Text="Score:" Grid.Row="0"/>
-                <Label x:Name="lblScoreValue" Text="0" Grid.Row="1" WidthRequest="100"/>
-                <Label x:Name="lblBestPlayed" Text="Best Played:" Grid.Row="2"/>
-                <Label x:Name="lblBestPlayedValue" Text="0" Grid.Row="3" WidthRequest="100"/>
-                <Label x:Name="lblBlocks" Text="Blocks:" Grid.Row="4"/>
-                <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center" VerticalOptions="Start">
-                    <Label x:Name="lblBlock1" Style="{StaticResource Key=blocks}"/>
-                    <Label x:Name="lblBlock2" Style="{StaticResource Key=blocks}"/>
-                    <Label x:Name="lblBlock3" Style="{StaticResource Key=blocks}"/>
-                </HorizontalStackLayout>
-                <Button x:Name="btnRules" Text="Click for Rules" Grid.Row="6"/>
-            </Grid>
+        <Grid ColumnDefinitions="*" RowDefinitions="Auto,Auto, Auto, Auto,Auto,Auto" Grid.Column="0" VerticalOptions="End" Padding="40">
+            <Entry x:Name="txtRow11" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" Style="{StaticResource Key=Row 1}" BindingContext="{Binding Rows[0].LetterTiles[0]}" Text="{Binding LetterTileValue}"/>
+            <HorizontalStackLayout Grid.Column="0" Grid.Row="2" HorizontalOptions="Center">
+                <Entry x:Name="txtRow21" Style="{StaticResource Key=Row 2}" BindingContext="{Binding Rows[1].LetterTiles[0]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow22" Style="{StaticResource Key=Row 2}" BindingContext="{Binding Rows[1].LetterTiles[1]}" Text="{Binding LetterTileValue}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="0" Grid.Row="3" HorizontalOptions="Center">
+                <Entry x:Name="txtRow31" Style="{StaticResource Key=Row 3}" BindingContext="{Binding Rows[2].LetterTiles[0]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow32" Style="{StaticResource Key=Row 3}" BindingContext="{Binding Rows[2].LetterTiles[1]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow33" Style="{StaticResource Key=Row 3}" BindingContext="{Binding Rows[2].LetterTiles[2]}" Text="{Binding LetterTileValue}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="0" Grid.Row="4" HorizontalOptions="Center">
+                <Entry x:Name="txtRow41" Style="{StaticResource Key=Row 4}" BindingContext="{Binding Rows[3].LetterTiles[0]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow42" Style="{StaticResource Key=Row 4}" BindingContext="{Binding Rows[3].LetterTiles[1]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow43" Style="{StaticResource Key=Row 4}" BindingContext="{Binding Rows[3].LetterTiles[2]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow44" Style="{StaticResource Key=Row 4}" BindingContext="{Binding Rows[3].LetterTiles[3]}" Text="{Binding LetterTileValue}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Column="0" Grid.Row="5" HorizontalOptions="Center">
+                <Entry x:Name="txtRow51" Style="{StaticResource Key=Row 5}" BindingContext="{Binding Rows[4].LetterTiles[0]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow52" Style="{StaticResource Key=Row 5}" BindingContext="{Binding Rows[4].LetterTiles[1]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow53" Style="{StaticResource Key=Row 5}" BindingContext="{Binding Rows[4].LetterTiles[2]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow54" Style="{StaticResource Key=Row 5}" BindingContext="{Binding Rows[4].LetterTiles[3]}" Text="{Binding LetterTileValue}"/>
+                <Entry x:Name="txtRow55" Style="{StaticResource Key=Row 5}" BindingContext="{Binding Rows[4].LetterTiles[4]}" Text="{Binding LetterTileValue}"/>
+            </HorizontalStackLayout>
         </Grid>
+        <Grid ColumnDefinitions="*" RowDefinitions="*,*, *, *,*,*, Auto" Grid.Column="1" Grid.Row="0" Padding="10" VerticalOptions="Fill">
+            <Border Grid.Row="0" Grid.RowSpan="7" StrokeShape="RoundRectangle 40" Stroke="#B9FDE9">
+                <Label x:Name="lblBase" Grid.RowSpan="6" BackgroundColor="#B9FDE9" Margin="0"/>
+            </Border>
+            <Label x:Name="lblScore" Text="Score:" Grid.Row="0"/>
+            <Label x:Name="lblScoreValue" Grid.Row="1" WidthRequest="100" Text="{Binding Score}"/>
+            <Label x:Name="lblBestPlayed" Text="Best Played:" Grid.Row="2"/>
+            <Label x:Name="lblBestPlayedValue" Grid.Row="3" WidthRequest="100" Text="{Binding BestPlayed}"/>
+            <Label x:Name="lblBlocks" Text="Blocks:" Grid.Row="4"/>
+            <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center" VerticalOptions="Start">
+                <Label x:Name="lblBlock1" Style="{StaticResource Key=blocks}" BindingContext="{Binding Blocks[0]}" BackgroundColor="{Binding BackColor}"/>
+                <Label x:Name="lblBlock2" Style="{StaticResource Key=blocks}" BindingContext="{Binding Blocks[1]}" BackgroundColor="{Binding BackColor}"/>
+                <Label x:Name="lblBlock3" Style="{StaticResource Key=blocks}" BindingContext="{Binding Blocks[2]}" BackgroundColor="{Binding BackColor}"/>
+            </HorizontalStackLayout>
+            <Button x:Name="btnRules" Text="Click for Rules" Grid.Row="6" Clicked="btnRules_Clicked"/>
+        </Grid>
+    </Grid>
 </ContentPage>

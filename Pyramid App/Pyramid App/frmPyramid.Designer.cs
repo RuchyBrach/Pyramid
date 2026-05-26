@@ -370,6 +370,7 @@
             // 
             txtRow11.BackColor = Color.FromArgb(220, 254, 241);
             txtRow11.CharacterCasing = CharacterCasing.Upper;
+            txtRow11.Dock = DockStyle.Fill;
             txtRow11.Enabled = false;
             txtRow11.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRow11.ForeColor = SystemColors.WindowText;
@@ -604,7 +605,6 @@
             lblBestPlayedVal.Name = "lblBestPlayedVal";
             lblBestPlayedVal.Size = new Size(99, 35);
             lblBestPlayedVal.TabIndex = 0;
-            lblBestPlayedVal.Text = "0";
             lblBestPlayedVal.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tblScore
@@ -633,7 +633,6 @@
             lblScoreVal.Name = "lblScoreVal";
             lblScoreVal.Size = new Size(101, 35);
             lblScoreVal.TabIndex = 0;
-            lblScoreVal.Text = "0";
             lblScoreVal.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tblRules

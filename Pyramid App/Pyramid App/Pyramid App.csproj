@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PyramidSystem\PyramidSystem.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="frmPyramid.cs">
       <CustomToolNamespace></CustomToolNamespace>
     </Compile>
