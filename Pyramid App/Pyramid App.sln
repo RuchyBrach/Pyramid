@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pyramid App", "Pyramid App\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PyramidMAUI", "PyramidMAUI\PyramidMAUI.csproj", "{13A58E99-597E-4F7A-9581-F4BF1FEECCEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyramidSystem", "PyramidSystem\PyramidSystem.csproj", "{0F44C7D1-4E21-44CF-8AE2-C285059EC98D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PyramidSystem", "PyramidSystem\PyramidSystem.csproj", "{0F44C7D1-4E21-44CF-8AE2-C285059EC98D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyramidTest", "PyramidTest\PyramidTest.csproj", "{50BC5BE8-FB22-4D15-B8B4-4E499E721010}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PyramidTest", "PyramidTest\PyramidTest.csproj", "{50BC5BE8-FB22-4D15-B8B4-4E499E721010}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

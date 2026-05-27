@@ -149,7 +149,7 @@
 
     <Style TargetType="Entry">
         <Setter Property="IsEnabled" Value="False"/>
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="TextColor" Value="Black" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="TextTransform" Value="Uppercase"/>
@@ -166,7 +166,7 @@
                     <VisualState x:Name="Normal" />
                     <VisualState x:Name="Disabled">
                         <VisualState.Setters>
-                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}" />
+                            <Setter Property="TextColor" Value="Black" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>

@@ -8,7 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="gnuciDictionary" Version="0.0.9" />
-    <PackageReference Include="Microsoft.Maui.Graphics" Version="10.0.60" />
+    <PackageReference Include="Microsoft.Maui.Graphics" Version="8.0.60" />
+
   </ItemGroup>
 
 </Project>
