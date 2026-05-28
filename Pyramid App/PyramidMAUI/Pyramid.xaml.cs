@@ -1,18 +1,24 @@
+
 using PyramidSystem;
 
 namespace PyramidMAUI;
 
 public partial class Pyramid : ContentPage
 {
-    Game game = new();
+    Game activegame;
+    List<Game> lstgame = new() { new Game(), new Game(), new Game() };
     List<Entry> lstentries;
     List<List<Entry>> lstRows;
-    List<Label> lstblocks;
 
     public Pyramid()
     {
         InitializeComponent();
-        BindingContext = game;
+        lstgame.ForEach(g => g.BestPlayedChanged += G_BestPlayedChanged);
+        RBGame1.BindingContext = lstgame[0];
+        RBGame2.BindingContext = lstgame[1];
+        RBGame3.BindingContext = lstgame[2];
+        activegame = lstgame[0];
+        this.BindingContext = activegame;
         lstentries = new() { txtRow11, txtRow21, txtRow22, txtRow31, txtRow32, txtRow33, txtRow41, txtRow42, txtRow43, txtRow44, txtRow51, txtRow52, txtRow53, txtRow54, txtRow55 };
 
         lstRows = new()
@@ -23,24 +29,23 @@ public partial class Pyramid : ContentPage
             new() { txtRow41, txtRow42, txtRow43, txtRow44 },
             new() { txtRow51, txtRow52, txtRow53, txtRow54, txtRow55 },
             };
-
-        lstblocks = new() { lblBlock3, lblBlock2, lblBlock1 };
         lstentries.ForEach(entry => entry.TextChanged += Entry_TextChanged);
-        this.Loaded += FrmPyramid_Loaded;
+        this.Loaded += Pyramid_Loaded;
     }
 
-
-
-    private void FrmPyramid_Loaded(object? sender, EventArgs e)
+    private void G_BestPlayedChanged(object sender, EventArgs e)
     {
-        StartGame();
+        lblBestPlayedValue.Text = Game.BestPlayed.ToString();
     }
 
-
+    private void Pyramid_Loaded(object sender, EventArgs e)
+    {
+        lstgame.ForEach(g => g.StartGame());
+    }
     private void StartGame()
     {
-        game.StartGame();
-        lstRows[game.CurrentRowIndex].First().Focus();
+        activegame.StartGame();
+        lstRows[activegame.CurrentRowIndex].First().Focus();
     }
 
     private async void Entry_TextChanged(object sender, TextChangedEventArgs e)
@@ -50,14 +55,14 @@ public partial class Pyramid : ContentPage
             entry.Unfocus();
             int row = lstRows.FindIndex(r => r.Contains(entry));
 
-            if (game.UpdateRowProgress(row) == false)
+            if (activegame.UpdateRowProgress(row) == false)
             {
                 lstRows[row].ForEach(e => e.IsEnabled = true);
-                if (game.Message != "")
+                if (activegame.Message != "")
                 {
-                    await DisplayAlert("Pyramid", game.Message, "OK");
+                    await DisplayAlert("Pyramid", activegame.Message, "OK");
                 }
-                if (game.RemainingAttempts == 0)
+                if (activegame.RemainingAttempts == 0)
                 {
                     StartGame();
                 }
@@ -72,35 +77,32 @@ public partial class Pyramid : ContentPage
 
             int index = lstentries.FindIndex(i => i == entry);
             int nextindex = index + 1;
-            if (row == lstRows.Count - 1)
-            {
-                lstRows[row].ForEach(e => e.IsEnabled = false);
-            }
             if (nextindex < lstentries.Count && lstentries[index].Text != "")
             {
                 Entry nextentry = lstentries[nextindex];
-                int nextRow = lstRows.FindIndex(r => r.Contains(nextentry));
-                int nextCol = lstRows[nextRow].IndexOf(nextentry);
-
-                if (nextCol == 0 && nextRow > 0)
-                {
-                    lstRows[nextRow - 1].ForEach(e => e.IsEnabled = false);
-                }
-
-                if (row == lstRows.Count - 1 && game.Rows[row].IsCorrect)
-                {
-                    lstRows[row].ForEach(e => e.IsEnabled = false);
-                }
                 nextentry.IsEnabled = true;
                 nextentry.Focus();
+            }
+            if (activegame.Rows[row].IsCorrect)
+            {
+                lstRows[row].ForEach(e => e.IsEnabled = false);
             }
         }
     }
 
     private async void btnRules_Clicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Rules", game.Rules, "OK");
+        await DisplayAlert("Rules", activegame.Rules, "OK");
         lstentries.FirstOrDefault(entry => entry.Text == "")?.Focus();
     }
 
+    private void Game_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        RadioButton rb = (RadioButton)sender;
+        if (rb.IsChecked && rb.BindingContext != null)
+        {
+            activegame = (Game)rb.BindingContext;
+            this.BindingContext = activegame;
+        }
+    }
 }

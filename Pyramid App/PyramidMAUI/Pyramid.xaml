@@ -30,21 +30,27 @@
             </HorizontalStackLayout>
             <Label x:Name="lblDefinition" Grid.Column="0" Grid.Row="6" HorizontalOptions="Fill" FontAutoScalingEnabled="True" LineBreakMode="WordWrap" MaxLines="2" HorizontalTextAlignment="Center" Text="{Binding CurrentDefinition}"/>
         </Grid>
-        <Grid ColumnDefinitions="*" RowDefinitions="*,*, *, *,*,*, Auto" Grid.Column="1" Grid.Row="0" Padding="10" VerticalOptions="Fill">
-            <Border Grid.Row="0" Grid.RowSpan="7" StrokeShape="RoundRectangle 40" Stroke="#B9FDE9">
+        <Grid ColumnDefinitions="*" RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto,*" Grid.Column="1" Grid.Row="0" Padding="10" VerticalOptions="Fill">
+            <Border Grid.Row="0" Grid.RowSpan="9" StrokeShape="RoundRectangle 40" Stroke="#B9FDE9">
                 <Label x:Name="lblBase" Grid.RowSpan="6" BackgroundColor="#B9FDE9" Margin="0"/>
             </Border>
-            <Label x:Name="lblScore" Text="Score:" Grid.Row="0"/>
+            <Label x:Name="lblScore" Grid.Row="0" Text="{Binding ScoreLabelText}"/>
             <Label x:Name="lblScoreValue" Grid.Row="1" Text="{Binding Score}"/>
             <Label x:Name="lblBestPlayed" Text="Best Played:" Grid.Row="2"/>
-            <Label x:Name="lblBestPlayedValue" Grid.Row="3" Text="{Binding BestPlayed}"/>
-            <Label x:Name="lblBlocks" Text="Blocks:" Grid.Row="4"/>
+            <Label x:Name="lblBestPlayedValue" Grid.Row="3" Text="0"/>
+            <Label x:Name="lblBlocks" Grid.Row="4" Text="{Binding BlocksLabelText}"/>
             <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center" VerticalOptions="Start">
                 <Label x:Name="lblBlock1" Style="{StaticResource Key=blocks}" BindingContext="{Binding Blocks[0]}" BackgroundColor="{Binding BackColorMaui}"/>
                 <Label x:Name="lblBlock2" Style="{StaticResource Key=blocks}" BindingContext="{Binding Blocks[1]}" BackgroundColor="{Binding BackColorMaui}"/>
                 <Label x:Name="lblBlock3" Style="{StaticResource Key=blocks}" BindingContext="{Binding Blocks[2]}" BackgroundColor="{Binding BackColorMaui}"/>
             </HorizontalStackLayout>
             <Button x:Name="btnRules" Text="Click for Rules" Grid.Row="6" Clicked="btnRules_Clicked"/>
+            <HorizontalStackLayout Grid.Row="7" HorizontalOptions="Center" VerticalOptions="Start">
+                <RadioButton x:Name="RBGame1" Content="Game 1" CheckedChanged="Game_CheckedChanged" IsChecked="True"/>
+                <RadioButton x:Name="RBGame2" Content="Game 2" CheckedChanged="Game_CheckedChanged"/>
+                <RadioButton x:Name="RBGame3" Content="Game 3" CheckedChanged="Game_CheckedChanged"/>
+            </HorizontalStackLayout>
+            <Label x:Name="lblCurrentGameDesc" Grid.Row="8" Text="{Binding GameDescription}"/>
         </Grid>
     </Grid>
 </ContentPage>

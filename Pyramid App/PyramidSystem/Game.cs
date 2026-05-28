@@ -9,16 +9,19 @@ namespace PyramidSystem
     public class Game : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+        public event EventHandler? BestPlayedChanged;
 
         public List<Word> lstword = gnuciDictionary.EnglishDictionary.GetAllWords().ToList();
         int _currentrowindex = 1;
         string _currentdefinition = "";
         int _score = 0;
-        int _bestplayed = 0;
         string _message = "";
+        private static int numgames;
 
         public Game()
         {
+            numgames++;
+            this.GameName = "Game " + numgames;
             for (int i = 0; i < 5; i++)
             {
                 Row row = new();
@@ -36,7 +39,10 @@ namespace PyramidSystem
 
         public List<Row> Rows { get; private set; } = new();
         public List<Block> Blocks { get; private set; } = new();
-
+        public string GameName { get; private set; }
+        public string ScoreLabelText { get => "Score: (" + this.GameName + ")";}
+        public string BlocksLabelText { get => "Blocks: (" + this.GameName + ")"; }
+        public string GameDescription { get => $"Current Game: " + this.GameName; }
         public int CurrentRowIndex
         {
             get => _currentrowindex;
@@ -63,17 +69,10 @@ namespace PyramidSystem
             {
                 _score = value;
                 this.InvokePropertyChanged();
+
             }
         }
-        public int BestPlayed
-        {
-            get => _bestplayed;
-            set
-            {
-                _bestplayed = value;
-                this.InvokePropertyChanged();
-            }
-        }
+        public static int BestPlayed { get; private set; } = 0;
         public string Rules { get => $"1. Write a word {Environment.NewLine}2. Include all letters from the previous layer {Environment.NewLine}3. You get 3 tries to complete the pyramid"; }
 
         public string Message
@@ -126,6 +125,7 @@ namespace PyramidSystem
             {
                 BestPlayed = score;
             }
+            BestPlayedChanged?.Invoke(this, new EventArgs());
         }
         public bool UpdateRowProgress(int rowindex)
         {
