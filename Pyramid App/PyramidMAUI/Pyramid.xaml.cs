@@ -47,7 +47,7 @@ public partial class Pyramid : ContentPage
     {
         if (sender is Entry entry)
         {
-
+            entry.Unfocus();
             int row = lstRows.FindIndex(r => r.Contains(entry));
 
             if (game.UpdateRowProgress(row) == false)
@@ -64,6 +64,7 @@ public partial class Pyramid : ContentPage
 
                 else
                 {
+                    lstRows[row].First().IsEnabled = true;
                     lstRows[row].First().Focus();
                 }
                 return;
@@ -71,12 +72,13 @@ public partial class Pyramid : ContentPage
 
             int index = lstentries.FindIndex(i => i == entry);
             int nextindex = index + 1;
+            if (row == lstRows.Count - 1)
+            {
+                lstRows[row].ForEach(e => e.IsEnabled = false);
+            }
             if (nextindex < lstentries.Count && lstentries[index].Text != "")
             {
                 Entry nextentry = lstentries[nextindex];
-                nextentry.IsEnabled = true;
-                nextentry.Focus();
-
                 int nextRow = lstRows.FindIndex(r => r.Contains(nextentry));
                 int nextCol = lstRows[nextRow].IndexOf(nextentry);
 
@@ -84,6 +86,13 @@ public partial class Pyramid : ContentPage
                 {
                     lstRows[nextRow - 1].ForEach(e => e.IsEnabled = false);
                 }
+
+                if (row == lstRows.Count - 1 && game.Rows[row].IsCorrect)
+                {
+                    lstRows[row].ForEach(e => e.IsEnabled = false);
+                }
+                nextentry.IsEnabled = true;
+                nextentry.Focus();
             }
         }
     }

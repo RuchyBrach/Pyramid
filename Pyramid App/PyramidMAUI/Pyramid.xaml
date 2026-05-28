@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PyramidMAUI.Pyramid"
              Title="Pyramid">
-    <Grid ColumnDefinitions="4*,*" RowDefinitions="*">
-        <Grid ColumnDefinitions="*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" Grid.Column="0" VerticalOptions="End" Padding="40">
+    <Grid ColumnDefinitions="*,Auto" RowDefinitions="*">
+        <Grid ColumnDefinitions="*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" Grid.Column="0" VerticalOptions="End" Padding="10">
             <Entry x:Name="txtRow11" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" Style="{StaticResource Key=Row 1}" BindingContext="{Binding Rows[0].LetterTiles[0]}" Text="{Binding LetterTileValue}"/>
             <HorizontalStackLayout Grid.Column="0" Grid.Row="2" HorizontalOptions="Center">
                 <Entry x:Name="txtRow21" Style="{StaticResource Key=Row 2}" BindingContext="{Binding Rows[1].LetterTiles[0]}" Text="{Binding LetterTileValue}"/>
@@ -28,16 +28,16 @@
                 <Entry x:Name="txtRow54" Style="{StaticResource Key=Row 5}" BindingContext="{Binding Rows[4].LetterTiles[3]}" Text="{Binding LetterTileValue}"/>
                 <Entry x:Name="txtRow55" Style="{StaticResource Key=Row 5}" BindingContext="{Binding Rows[4].LetterTiles[4]}" Text="{Binding LetterTileValue}"/>
             </HorizontalStackLayout>
-            <Label x:Name="lblDefinition" Grid.Column="0" Grid.Row="6" HorizontalOptions="Center" Text="{Binding CurrentDefinition}"/>
+            <Label x:Name="lblDefinition" Grid.Column="0" Grid.Row="6" HorizontalOptions="Fill" FontAutoScalingEnabled="True" LineBreakMode="WordWrap" MaxLines="2" HorizontalTextAlignment="Center" Text="{Binding CurrentDefinition}"/>
         </Grid>
         <Grid ColumnDefinitions="*" RowDefinitions="*,*, *, *,*,*, Auto" Grid.Column="1" Grid.Row="0" Padding="10" VerticalOptions="Fill">
             <Border Grid.Row="0" Grid.RowSpan="7" StrokeShape="RoundRectangle 40" Stroke="#B9FDE9">
                 <Label x:Name="lblBase" Grid.RowSpan="6" BackgroundColor="#B9FDE9" Margin="0"/>
             </Border>
             <Label x:Name="lblScore" Text="Score:" Grid.Row="0"/>
-            <Label x:Name="lblScoreValue" Grid.Row="1" WidthRequest="100" Text="{Binding Score}"/>
+            <Label x:Name="lblScoreValue" Grid.Row="1" Text="{Binding Score}"/>
             <Label x:Name="lblBestPlayed" Text="Best Played:" Grid.Row="2"/>
-            <Label x:Name="lblBestPlayedValue" Grid.Row="3" WidthRequest="100" Text="{Binding BestPlayed}"/>
+            <Label x:Name="lblBestPlayedValue" Grid.Row="3" Text="{Binding BestPlayed}"/>
             <Label x:Name="lblBlocks" Text="Blocks:" Grid.Row="4"/>
             <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center" VerticalOptions="Start">
                 <Label x:Name="lblBlock1" Style="{StaticResource Key=blocks}" BindingContext="{Binding Blocks[0]}" BackgroundColor="{Binding BackColorMaui}"/>
