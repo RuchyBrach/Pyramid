@@ -605,6 +605,7 @@
             lblBestPlayedVal.Name = "lblBestPlayedVal";
             lblBestPlayedVal.Size = new Size(99, 35);
             lblBestPlayedVal.TabIndex = 0;
+            lblBestPlayedVal.Text = "0";
             lblBestPlayedVal.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tblScore
