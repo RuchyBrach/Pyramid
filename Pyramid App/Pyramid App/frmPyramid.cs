@@ -36,6 +36,7 @@ namespace Pyramid_App
 
             lblScoreVal.DataBindings.Add("Text", game, "Score");
             //lblBestPlayedVal.DataBindings.Add("Text", game, "BestPlayed");
+            lblBestPlayed.t
             lblDefinition.DataBindings.Add("Text", game, "CurrentDefinition");
             for (int i = 0; i < lstblocks.Count; i++)
             {
