@@ -1,0 +1,230 @@
+﻿@page
+@model PyramidWeb.Pages.PyramidModel
+@{
+}
+<div class="container-fluid">
+    <div class="row g-0">
+        <div class="col-12 col-md-10">
+            <div class="pyramid-area">
+                <div class="pyramid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="text-center mb-2 mb-md-5 fs-5" id="msg"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><input type="text" readonly maxlength="1" class="row1 pyramid-box" value="" id="txt11" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><input type="text" maxlength="1" class="row2 pyramid-box" value="" id="txt21" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row2 pyramid-box" value="" id="txt22" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><input type="text" maxlength="1" class="row3 pyramid-box" value="" id="txt31" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row3 pyramid-box" value="" id="txt32" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row3 pyramid-box" value="" id="txt33" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><input type="text" maxlength="1" class="row4 pyramid-box" value="" id="txt41" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row4 pyramid-box" value="" id="txt42" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row4 pyramid-box" value="" id="txt43" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row4 pyramid-box" value="" id="txt44" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><input type="text" maxlength="1" class="row5 pyramid-box" value="" id="txt51" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row5 pyramid-box" value="" id="txt52" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row5 pyramid-box" value="" id="txt53" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row5 pyramid-box" value="" id="txt54" /></div>
+                        <div class="col"><input type="text" maxlength="1" class="row5 pyramid-box" value="" id="txt55" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="definition" id="currentDefinition"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-2 stats-area">
+            <div class="row">
+                <div class="col-3 col-md-12 text-center">
+                    <div class="bg-white text-center mt-2 mt-md-5 p-2">Score:</div>
+                    <div class="bg-white text-center mt-2 mt-md-5 mx-2 mx-lg-5 p-2 rounded-5" id="score">0</div>
+                </div>
+
+                <div class="col-6 col-md-12 text-center">
+                    <div class="bg-white text-center mt-2 mt-md-5 p-2"">Best Played:</div>
+                    <div class="bg-white text-center mt-2 mt-md-5 mx-2 mx-lg-5 p-2 rounded-5" id="bestPlayed">0</div>
+                </div>
+
+                <div class="col-3 col-md-12 text-center">
+                    <div class="bg-white text-center mt-2 mt-md-5 p-2">Blocks</div>
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                        <div class="blocks"></div>
+                        <div class="blocks"></div>
+                        <div class="blocks"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const dictionary = @Html.Raw(Model.WordsJson);
+    const pyramidBox = [...document.querySelectorAll(".pyramid-box")];
+    const rows = [];
+    const blocks = [...document.querySelectorAll(".blocks")];
+    const score = document.querySelector("#score");
+    let currentScore = 0;
+    const bestPlayed = document.querySelector("#bestPlayed");
+    let currentBestPlayed = 0;
+    const msg = document.querySelector("#msg");
+    const currentDefinition = document.querySelector("#currentDefinition");
+    let remainingAttempts = 3;
+
+    setupRows();
+    startGame();
+    pyramidBox.forEach(p => p.addEventListener("input", textChanged))
+    function setupRows() {
+        for (let i = 1; i <= 5; i++) {
+            rows.push([...document.querySelectorAll(`.row${i}`)]);
+        }
+    }
+    //startgame
+    function startGame() {
+        currentScore = 0;
+        score.textContent = currentScore;
+        currentDefinition.textContent = "";
+        msg.textContent = "";
+        blocks.forEach(b => b.style.backgroundColor = "white");
+        remainingAttempts = 3;
+        getNewPyramid();
+    }
+    //getnewpyramid
+    function getNewPyramid() {
+        pyramidBox.forEach(p => {
+            p.value = "";
+            p.readOnly = true;
+        });
+        rows[0][0].value = getRandomLetter();
+        rows[1].forEach(p => p.readOnly = false);
+        rows[1][0].focus();
+    }
+    //updatescore
+    function setScore() {
+        currentScore++;
+        score.textContent = currentScore;
+        checkBestPlayed();
+    }
+    function checkBestPlayed() {
+        if (currentScore > currentBestPlayed) {
+            currentBestPlayed = currentScore;
+            bestPlayed.textContent = currentBestPlayed;
+        }
+    }
+    function textChanged(event) {
+        const input = event.target;
+        if (input === rows[0][0]) {
+            return;
+        }
+        const row = rows.find(r => r.includes(input));
+        if (detectCompleteRow(row)) {
+            const isValid = detectWord(row);
+            const lastRow = rows.indexOf(row) === rows.length - 1;
+            if (isValid && !lastRow) {
+                focusNextBox(input);
+                row.forEach(p => p.readOnly = true);
+                rows[rows.indexOf(row) + 1].forEach(p => p.readOnly = false);
+            }
+            else if (isValid && lastRow) {
+                setScore();
+                getNewPyramid();
+            }
+            else {
+                row.forEach(p => p.value = "")
+                row[0].focus();
+                remainingAttempts--;
+                updateBlocks();
+                if (remainingAttempts === 0) {
+                    gameOver();
+                }
+            }
+        }
+        else if (input.value) {
+            focusNextBox(input);
+        }
+    }
+    function focusNextBox(currentInput) {
+        const index = pyramidBox.indexOf(currentInput);
+        if (index < pyramidBox.length - 1) {
+            pyramidBox[index + 1].focus();
+        }
+    }
+    //detectcompleterow
+    function detectCompleteRow(row) {
+        return row.every(p => p.value);
+    }
+    //detectword
+    function detectWord(row) {
+        let word = row.map(p => p.value.toUpperCase()).join("");
+        const matches = dictionary.filter(w => w.Value.toUpperCase() === word);
+        let isValid = matches.length > 0;
+        let containsPrevious = containsPreviousWord(row, word);
+        if (isValid && containsPrevious) {
+            msg.textContent = "";
+            let match = matches.find(w => w.Definition) ?? matches[0];
+            currentDefinition.textContent = match.Definition || "";
+            return true;
+        }
+        else if (!isValid) {
+            msg.textContent = "The word you've entered isn't in the dictionary."
+        }
+        else if (!containsPrevious) {
+            msg.textContent = "Must include previous letters";
+        }
+        return false;
+    }
+    //containspreviousword
+    function containsPreviousWord(row, word) {
+        let previousIndex = rows.indexOf(row) - 1;
+        let previousWord = rows[previousIndex].map(p => p.value.toUpperCase())
+        let letters = [...word];
+
+        for (const letter of previousWord) {
+            if (!letters.includes(letter)) {
+                return false;
+            }
+            letters.splice(letters.indexOf(letter), 1);
+        }
+        return true;
+    }
+    //updateblocks
+    function updateBlocks() {
+        for (let i = blocks.length - 1; i >= 0; i--) {
+            if (blocks[i].style.backgroundColor === "white") {
+                blocks[i].style.backgroundColor = "#B9FDE9";
+                break;
+            }
+        }
+    }
+    //gameover
+    function gameOver() {
+        msg.textContent = "Game Over:("
+        setTimeout(startGame, 2500);
+    }
+
+    function getRandomLetter() {
+        let twoLetterWords = dictionary.filter(w => w.Value.length === 2);
+        while (true) {
+            let randomWord = twoLetterWords[Math.floor(Math.random() * twoLetterWords.length)];
+            let letterIndex = Math.floor(Math.random() * 2);
+            let letter = randomWord.Value[letterIndex].toUpperCase();
+            let code = letter.charCodeAt(0);
+
+            if (code >= 65 && code <= 90) {
+                return letter;
+            }
+        }
+    }
+</script>

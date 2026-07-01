@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4 text-center mb-4">Pyramid</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>
+                The Pyramid game consists of five layers. The first layer has one textbox, the second layer has two
+                textboxes, the third layer has three textboxes, and so on. The player is presented with a letter of
+                the alphabet in the uppermost textbox of the pyramid. The player must then enter a new word in the
+                next layer while including all of the letter(s) from the previous layer.
+                <br />
+                When all five layers have been completed, the player's score increases and a new pyramid is generated. If the score is the highest score the player has ever achieved, it is recorded in the Best Played textbox.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Rules</h3>
+            <ul>
+                <li>Each new word must contain all letter(s) from the previous layer.</li>
+                <li>All words must be valid dictionary words.</li>
+                <li>Completing all five layers increases the player's score and generates a new pyramid.</li>
+                <li>Players have three blocks (lives).</li>
+                <li>Losing all three blocks ends the game and resets the score.</li>
+                <li>The highest score achieved is recorded in the Best Played textbox.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h5>Pyramid Wireframe</h5>
+            <img src="/images/Pyramid Wireframe.png" class="img-fluid" style="max-height:300px;" alt="Picture of Wireframe" />
+        </div>
+    </div>
+</div>

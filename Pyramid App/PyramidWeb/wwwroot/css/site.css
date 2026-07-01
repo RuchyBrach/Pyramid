@@ -1,0 +1,119 @@
+html {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.row1 {
+    background: radial-gradient(circle, white 30%, #62FDD9 100%);
+}
+
+.row2 {
+    background: linear-gradient(to bottom, white 0%, #62FDD9 80%);
+}
+
+.row3 {
+    background: linear-gradient(to bottom, white 0%, #68E4FD 80%);
+}
+
+.row4 {
+    background: linear-gradient(to bottom, white 0%, #33BEF9 80%);
+}
+
+.row5 {
+    background: linear-gradient(to bottom, white 0%, #2079CB 80%);
+}
+
+
+
+.blocks {
+    background-color: white;
+    background-color: white;
+    width: 10vw;
+    min-width: 15px;
+    max-width:75px;
+    aspect-ratio: 1 / 1;
+    margin: 0.5vw;
+}
+
+.pyramid-area {
+    min-height: calc(100dvh - 140px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .pyramid-area {
+        min-height: auto;
+        align-items: flex-start;
+    }
+}
+
+.pyramid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .pyramid .row {
+        justify-content: center;
+        margin: 0px;
+        flex-wrap: nowrap;
+    }
+
+.pyramid .col{
+    padding: 0px;
+}
+
+.pyramid-box {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 8px;
+
+    width: 10vw;
+    min-width: 65px;
+    max-width: 140px;
+    aspect-ratio: 11/7;
+
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.stats-area {
+    background-color: #B9FDE9;
+    border-radius: 40px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@media (max-width: 767px) {
+    .stats-area {
+        border-radius: 0;
+    }
+}
+
+.definition{
+    min-height:35px;
+    text-align:center;
+}
+
